@@ -12,7 +12,7 @@
 
 <form>
     <label for="form1_guess">Guess the secret musician</label>
-    <input type ="password" id="form1_secretmusician" name="form1_secretmusician" placeholder = "John Lennon"> <br>
+    <input type ="password" id="form1_secretmusician" name="form1_secretmusician"> <br>
 
     <label for="form1_guess">Guess the musician </label>
     <input type ="text" id="form1_musician" name="form1_musician" autofocus> <br>
@@ -29,6 +29,7 @@ function checkGuess (){
     
     var correct = 0
     var wrong = 0
+    let musician = "John Lennon"
 
     console.log("Getting form values")
     secret = document.getElementById("form1_secretmusician").value
