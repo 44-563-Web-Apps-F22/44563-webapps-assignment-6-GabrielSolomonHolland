@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Discount calculator</title>
+</head>
+ 
+<body>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="form1_base">Enter Base Amount </label>
+    <input type ="number" id="form1_base" name="form1_base" min = 0 value=20> <br>
+
+    <label for="form1_discount">Enter Discount Percentage</label>
+    <input type ="number" id="form1_discount" name="form1_discount" autofocus value = 10> <br>
+
+    <input type="button" onclick="applyDiscount()" value="Calculate">
+</form>
+
+
+<p id="result"> </p>
+
+<script> 
+
+function applyDiscount()
+{
+    console.log("Getting form values")
+    baseValue = document.getElementById("form1_base").value
+    discountPercentage = document.getElementById("form1_discount").value
+    confirmed = confirm("Are these the values? "+baseValue+" and "+discountPercentage)
+    
+    result = ""
+    out = document.getElementById("result")
+
+    result = "Discounted amounds to base value: " + baseValue.toString() + " are: "
+
+
+    for (let i = 1; i <=5 ; i++) 
+    {   
+        result = result.concat((baseValue * i)*(1-(discountPercentage/100))).toString() + " "
+        out.innerHTML = result
+    }
+
+    // if(confirmed){
+    //     out.innerHTML = "Values were confirmed"
+    // } else {
+    //     out.innerHTML = "Values were not confirmed"
+    // }
+}
+</script>
+
+</body>
+</html> 
