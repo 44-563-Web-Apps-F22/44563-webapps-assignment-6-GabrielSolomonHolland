@@ -26,9 +26,22 @@
   </form>
 
 
+  <form>
+    <label for="form1_city">Enter City</label>
+    <input type ="text" id="form1_city" name="form1_city" value="City"> <br>
+
+    <label for="form1_price">Enter Price</label>
+    <input type ="text" id="form1_price" name="form1_price" autofocus> <br>
+
+    <input type="button" onclick="updateVacation()" value="Update the vacation">
+</form>
+
+
 <p id="result"> </p>
 
 <script> 
+
+    my_vacation = {air: true, domestic: true, resort: false, city: "City", price: 0}
     function selectVacation()
     {
 
@@ -37,9 +50,25 @@
     resCheck = document.getElementById("cb1_resort").checked
     out = document.getElementById("result")
 
-        const my_vacation = {air: airCheck, dom: domCheck, res: resCheck};
+    my_vacation["air"] = airCheck
+    my_vacation["domestic"] = domCheck
+    my_vacation["resort"] = resCheck
 
-        var result = "Air: " + my_vacation.air + ", Domestic: " + my_vacation.dom + ", Resort: " + my_vacation.res
+    result = "Air: " + my_vacation.air + ", Domestic: " + my_vacation.domestic + ", Resort: " + my_vacation.resort
+    out.innerHTML = result
+    }
+
+    function updateVacation()
+    {
+        vacationCity = document.getElementById("form1_city").value
+        vacationPrice = document.getElementById("form1_price").value
+        out = document.getElementById("result")
+
+        my_vacation["city"] = vacationCity
+        my_vacation["price"] = vacationPrice
+
+        result = "City: " + my_vacation.city + ", Price: " + my_vacation.price
+
         out.innerHTML = result
     }
 
