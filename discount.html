@@ -19,6 +19,38 @@
     <input type="button" onclick="applyDiscount()" value="Calculate">
 </form>
 
+<form>
+    <input type="radio" id="rg1_mult" name="radiobutton" value="times"   
+      checked >
+    <label for="rg1_mult">*</label></br>
+  
+    <input type="radio" id="rg1_div" name="radiobutton" 
+       value="div">
+    <label for="rg1_div">/</label></br>
+  
+    <input type="radio" id="rg1_exp" name="radiobutton"   
+       value="exp">
+    <label for="rg1_green">**</br>
+
+    <input type="button" onclick="useOp()" value="Use Operation">
+  </form>
+  
+  <!-- <form>
+    <input type="checkbox" id="cb1_cheese" name="topping1"   
+      value="cheese" checked>
+    <label for="cb1_cheese">I want cheese</label></br>
+  
+    <input type="checkbox" id="cb1_olive" name="topping2" 
+       value="olive">
+    <label for="cb1_olive">I want olives</label></br>
+  
+    <input type="checkbox" id="cb1_onion" name="topping3"   
+       value="onion" checked>
+    <label for="cb1_onion">I want onions</label></br>
+
+    <input type="button" onclick = "useOp()" value="Use Operation">
+  </form> -->
+
 
 <p id="result"> </p>
 
@@ -42,6 +74,36 @@ function applyDiscount()
         result = result.concat((baseValue * i)*(1-(discountPercentage/100))).toString() + " "
         out.innerHTML = result
     }
+}
+
+function useOp() {
+    console.log("Getting input")
+    multOpt = document.getElementById("rg1_mult").checked
+    divOpt = document.getElementById("rg1_div").checked
+    expOpt = document.getElementById("rg1_exp").checked
+    baseValue = document.getElementById("form1_base").value
+    discountPercentage = document.getElementById("form1_discount").value
+
+    confirmed = confirm("Are these the values? Multiplication: "+multOpt+", Division: "+divOpt+", Exponent: "+expOpt)
+
+    if(multOpt)
+    {
+        result = "Base amount: " + baseValue + ", discounted amount: " + (baseValue*(1-(discountPercentage/100))).toString()
+    }
+    else if(divOpt)
+    {
+        result = "Base amount: " + baseValue + ", discounted amount: " + (baseValue/(1-(discountPercentage/100))).toString()
+    }
+    else if(expOpt)
+    {
+        result = "Base amount: " + baseValue + ", discounted amount: " + (baseValue**(1-(discountPercentage/100))).toString()
+    }
+
+    out = document.getElementById("result")
+    out.innerHTML = result
+
+
+
 
     // if(confirmed){
     //     out.innerHTML = "Values were confirmed"
