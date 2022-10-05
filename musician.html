@@ -24,39 +24,73 @@
 <p id="result">This text will be replaced </p>
 
 <script> 
+    function checkGuess(){
+        
+        var correct = 0
+        var wrong = 0
+        let musician = "John Lennon"
 
-function checkGuess (){
-    
-    var correct = 0
-    var wrong = 0
-    let musician = "John Lennon"
+        console.log("Getting form values")
+        secret = document.getElementById("form1_secretmusician").value
+        input = document.getElementById("form1_musician").value
+        confirmed = confirm("Are these the values? "+secret+" and "+input)
 
-    console.log("Getting form values")
-    secret = document.getElementById("form1_secretmusician").value
-    input = document.getElementById("form1_musician").value
-    confirmed = confirm("Are these the values? "+secret+" and "+input)
+        out = document.getElementById("result")
+        if(secret == input)
+        {
+            correct+=1
+            out.innerHTML = "You got it right"
+        }
+        else
+        {
+            wrong+=1
+            out.innerHTML = "Wrong musician"
+        }
 
-    out = document.getElementById("result")
-    if(secret == input)
-    {
-        correct+=1
-        out.innerHTML = "You got it right"
+        
+        // out = document.getElementById("result")
+        // if(confirmed){
+        //     out.innerHTML = "Values were confirmed"
+        // } else {
+        //     out.innerHTML = "Values were not confirmed"
+        // }
     }
-    else
-    {
-        wrong+=1
-        out.innerHTML = "Wrong musician"
-    }
 
-    
-    // out = document.getElementById("result")
-    // if(confirmed){
-    //     out.innerHTML = "Values were confirmed"
-    // } else {
-    //     out.innerHTML = "Values were not confirmed"
-    // }
-}
+    var useImage = 1
+
+    function swapImage() {
+
+        var image = document.getElementById("imageDisplay")
+        image.setAttribute("width","100")
+        image.setAttribute("height","100")
+
+        switch(useImage)
+        {
+            case 1: 
+                image.setAttribute("src","sawfly.jpg")
+                break;
+            case 2:
+                image.setAttribute("src", "orangesulfurbutterfly.jpg")
+                break;
+            case 3:
+                image.setAttribute("src","owlfly.jpg")
+                break;
+        } 
+
+        useImage++
+        if(useImage > 3)
+        {
+            useImage = 1
+        }
+        
+    }
 </script>
+
+<div>
+    <img src ="sawfly.jpg" height="100" width="100" id="imageDisplay" onclick="swapImage()" role=button/>
+</div>
+
+
 
 </body>
 </html> 
