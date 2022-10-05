@@ -21,7 +21,7 @@
 </form>
 
 
-<p id="result">This text will be replaced </p>
+<p id="result"> </p>
 
 <script> 
     function checkGuess(){
@@ -40,11 +40,13 @@
         {
             correct+=1
             out.innerHTML = "You got it right"
+            window.alert("You got it right!")
         }
         else
         {
             wrong+=1
             out.innerHTML = "Wrong musician"
+            window.alert("Wrong musician")
         }
 
         
