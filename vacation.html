@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vaction Selection Spectaculathon</title>
+</head>
+ 
+<body>
+
+<h2>Gabriel Solomon Holland Selects a Vacation</h2>
+
+<form>
+    <input type="checkbox" id="cb1_air" name="air"   
+      value="Travel by Air" checked>
+    <label for="cb1_air">Airplane</label></br>
+  
+    <input type="checkbox" id="cb1_domestic" name="domestic" 
+       value="Domestic Travel" checked>
+    <label for="cb1_domestic">Domestic travel</label></br>
+  
+    <input type="checkbox" id="cb1_resort" name="resort"   
+       value="Go to a resort">
+    <label for="cb1_resort">Go to a resort</label></br>
+
+    <input type="button" onclick = "selectVacation()" value="Select Vacation">
+  </form>
+
+
+<p id="result"> </p>
+
+<script> 
+    function selectVacation()
+    {
+
+    airCheck = document.getElementById("cb1_air").checked
+    domCheck = document.getElementById("cb1_domestic").checked
+    resCheck = document.getElementById("cb1_resort").checked
+    out = document.getElementById("result")
+
+        const my_vacation = {air: airCheck, dom: domCheck, res: resCheck};
+
+        var result = "Air: " + my_vacation.air + ", Domestic: " + my_vacation.dom + ", Resort: " + my_vacation.res
+        out.innerHTML = result
+    }
+
+</script>
+
+<a href="discount.html">Discount</a>
+<a href="vacation.html">Vacation</a>
+<a href="musician.html">Musician</a>
+
+</body>
+</html> 
